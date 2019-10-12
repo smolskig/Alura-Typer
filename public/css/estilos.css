@@ -1,0 +1,20 @@
+.frase{
+    font-size:20px;
+}
+.campo-digitacao{
+    font-size:20px;
+    height:130px;
+    border:3px solid black;
+}
+.campo-correto{
+    border:3px solid green;
+}
+.campo-incorreto{
+    border:3px solid red;
+}
+.campo-desativado{
+    background-color:lightgray;
+}
+.icones{
+    vertical-align: middle;
+}
