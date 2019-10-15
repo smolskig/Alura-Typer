@@ -38,14 +38,19 @@ function inicializaCronometro(){
             $("#tempo-digitacao").text(tempoRestante)
 
             if (tempoRestante < 1){
-                campo.attr("disabled",true)
                 clearInterval(cronometroID)
-                $("#botao-reiniciar").attr("disabled",false)
-                campo.toggleClass("campo-desativado")
+                finalizaJogo()
             }
         },1000)
     })
 }
+function finalizaJogo(){
+    campo.attr("disabled",true)
+    campo.toggleClass("campo-desativado")
+    $("#botao-reiniciar").attr("disabled",false)
+    inserePlacar()
+}
+
 function inicializaMarcador(){
     var frase = $(".frase").text();
     campo.on("input",function(){
@@ -75,4 +80,5 @@ function reiniciarJogo(){
     campo.removeClass("campo-incorreto")
     campo.removeClass("campo-correto")
 }
+
 
