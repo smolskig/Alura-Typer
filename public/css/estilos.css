@@ -18,3 +18,9 @@
 .icones{
     vertical-align: middle;
 }
+.placar{
+    display:none;
+}
+body{
+    overflow:scroll;
+}
