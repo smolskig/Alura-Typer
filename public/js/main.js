@@ -7,6 +7,7 @@ $(function(){
     inicializaCronometro();
     inicializaMarcador();
     $("#botao-reiniciar").click(reiniciarJogo);
+    atualizaPlacar();
 })
 
 function atualizaTamanhoFrase(){
@@ -30,9 +31,11 @@ function inicializaContador(){
 
 
 function inicializaCronometro(){
-    var tempoRestante = $("#tempo-digitacao").text();
+    
     campo.one("focus",function(){
-        $("#botao-reiniciar").attr("disabled",true)
+        var tempoRestante = $("#tempo-digitacao").text();
+        $("#botao-reiniciar").toggleClass("isDisabled")
+        $("#botao-frase").toggleClass("isDisabled")
         var cronometroID = setInterval(function(){
             tempoRestante --;
             $("#tempo-digitacao").text(tempoRestante)
@@ -47,13 +50,15 @@ function inicializaCronometro(){
 function finalizaJogo(){
     campo.attr("disabled",true)
     campo.toggleClass("campo-desativado")
-    $("#botao-reiniciar").attr("disabled",false)
+    $("#botao-reiniciar").toggleClass("isDisabled")
+    $("#botao-frase").toggleClass("isDisabled")
     inserePlacar()
 }
 
 function inicializaMarcador(){
-    var frase = $(".frase").text();
+    
     campo.on("input",function(){
+        var frase = $(".frase").text();
         var digitado = campo.val();
         var comparavel = frase.substr(0,digitado.length);
 
@@ -76,7 +81,7 @@ function reiniciarJogo(){
     $("#contador-caracteres").text("0")
     $("#tempo-digitacao").text(tempoPadrao);
     inicializaCronometro();
-    campo.toggleClass("campo-desativado")
+    campo.removeClass("campo-desativado")
     campo.removeClass("campo-incorreto")
     campo.removeClass("campo-correto")
 }

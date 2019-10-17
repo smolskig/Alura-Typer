@@ -24,3 +24,20 @@
 body{
     overflow:scroll;
 }
+.isDisabled{
+    pointer-events:none;
+}
+#erro{
+    color:red;
+    display:none;
+}
+#spinner{
+    display:none;
+}
+#campoId{
+    width:50px;
+}
+
+#botao-sync{
+    float:right;
+}
